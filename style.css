@@ -1,0 +1,478 @@
+/* --- CSS VARIABLES (The Theme) --- */
+:root {
+    /* Backgrounds */
+    --bg-dark: #0a192f;        /* Deep Navy */
+    --bg-card: #112240;        /* Light Navy */
+    --bg-card-hover: #1d335a;  /* Slightly lighter for hover */
+
+    /* Text */
+    --text-main: #ccd6f6;      /* Off-white */
+    --text-muted: #8892b0;     /* Slate Grey */
+
+    /* Accents */
+    --accent-green: #64ffda;   /* Soft Electric Green */
+    --accent-blue: #57cbff;    /* Soft Blue */
+    
+    /* Spacing */
+    --border-radius: 6px;
+    --transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+/* --- RESET & BASIC SETUP --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    line-height: 1.6;
+    font-size: 16px;
+}
+
+a {
+    text-decoration: none;
+    color: var(--accent-green);
+    transition: var(--transition);
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+ul {
+    list-style: none;
+}
+
+/* --- LAYOUT UTILITIES --- */
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* --- HEADER --- */
+.main-header {
+    padding: 80px 0 60px;
+    text-align: left;
+}
+
+.main-header h1 {
+    font-size: 4rem;
+    color: var(--accent-green);
+    margin-bottom: 10px;
+    line-height: 1.1;
+}
+
+.tagline {
+    font-size: 1.5rem;
+    color: var(--text-muted);
+    margin-bottom: 20px;
+}
+
+.contact-info {
+    color: var(--text-muted);
+    font-family: monospace;
+    font-size: 0.9rem;
+}
+
+/* --- LARGE SECTIONS --- */
+.large-section {
+    margin-bottom: 100px;
+    /* Fade in animation setup could go here */
+}
+
+.section-title {
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+    color: var(--text-main);
+    margin-bottom: 30px;
+    white-space: nowrap;
+}
+
+.section-title::after {
+    content: "";
+    display: block;
+    width: 200px; /* Length of the line next to title */
+    height: 1px;
+    background-color: var(--text-muted);
+    margin-left: 20px;
+    opacity: 0.3;
+}
+
+/* --- COMPONENT DIVISIONS (Cards) --- */
+.item-div {
+    background-color: var(--bg-card);
+    padding: 25px;
+    border-radius: var(--border-radius);
+    transition: var(--transition);
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+}
+
+/* Dynamic Hover Effect */
+.item-div:hover {
+    transform: translateY(-5px);
+    background-color: var(--bg-card-hover);
+    border-color: rgba(100, 255, 218, 0.1);
+    box-shadow: 0 10px 30px -15px rgba(2, 12, 27, 0.7);
+}
+
+/* --- SPECIFIC COMPONENT STYLES --- */
+
+/* Grid for Education/Projects/Everything Else */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.card h3 {
+    color: var(--text-main);
+    margin-bottom: 5px;
+    font-size: 1.2rem;
+}
+
+.card h4 {
+    color: var(--accent-green);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    margin-top: -10px;}
+
+.date {
+    font-family: monospace;
+    color: var(--accent-green);
+    font-size: 0.85rem;
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* Experience Section Specifics */
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    margin-bottom: 15px;
+}
+
+.company {
+    color: var(--accent-blue);
+    font-weight: 600;
+}
+
+.job-details li {
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 10px;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
+.job-details li::before {
+    content: "▹";
+    position: absolute;
+    left: 0;
+    color: var(--accent-green);
+}
+
+/* Skills Section Specifics */
+.skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.skill-category h3 {
+    margin-bottom: 15px;
+    color: var(--accent-blue);
+    font-size: 1.1rem;
+}
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.tags span {
+    font-family: monospace;
+    font-size: 0.85rem;
+    color: var(--accent-green);
+    background-color: rgba(100, 255, 218, 0.1); /* Transparent Green */
+    padding: 5px 12px;
+    border-radius: 15px;
+    transition: var(--transition);
+}
+
+.tags span:hover {
+    background-color: rgba(100, 255, 218, 0.2);
+}
+
+/* Project Specifics */
+.project-link {
+    display: inline-block;
+    margin-top: 15px;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.tech-stack {
+    font-family: monospace;
+    font-size: 0.8rem;
+    color: var(--accent-blue);
+    margin-bottom: 10px;
+}
+
+/* --- FOOTER --- */
+footer {
+    text-align: center;
+    padding: 20px;
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    font-family: monospace;
+    margin-top: 50px;
+}
+
+/* --- MOBILE RESPONSIVENESS --- */
+@media (max-width: 768px) {
+    .main-header h1 {
+        font-size: 3rem;
+    }
+    
+    .skills-container {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .card-header {
+        flex-direction: column;
+    }
+    
+    .section-title::after {
+        width: 100%; /* Line stretches to fill space on mobile */
+    }
+}
+
+/* =========================================
+   PROJECT PAGE SPECIFIC STYLES
+   ========================================= */
+
+/* --- Navigation --- */
+.project-nav {
+    padding: 40px 0 20px;
+}
+
+.back-link {
+    font-family: monospace;
+    font-size: 1rem;
+    color: var(--accent-green);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* --- Project Header (Green Theme) --- */
+.project-header {
+    background: linear-gradient(135deg, var(--bg-card) 0%, rgba(100, 255, 218, 0.05) 100%);
+    border-left: 5px solid var(--accent-green); /* Strong green accent */
+    padding: 40px;
+}
+
+.project-type {
+    font-family: monospace;
+    color: var(--accent-green);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.project-header h1 {
+    font-size: 2.5rem;
+    color: var(--text-main);
+    margin: 10px 0 30px;
+}
+
+/* Metadata Grid */
+.meta-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+    border-top: 1px solid rgba(100, 255, 218, 0.2);
+    padding-top: 20px;
+}
+
+.meta-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.meta-item .label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-muted);
+    margin-bottom: 5px;
+}
+
+.meta-item .value {
+    font-size: 1rem;
+    color: var(--accent-green); /* Green text for metadata */
+    font-weight: 600;
+}
+
+/* --- Content Styling --- */
+.content-block p {
+    margin-bottom: 20px;
+    color: var(--text-muted);
+    font-size: 1.05rem;
+    line-height: 1.8;
+}
+
+.styled-list {
+    list-style: none;
+    margin: 20px 0;
+}
+
+.styled-list li {
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 12px;
+    color: var(--text-main);
+}
+
+.styled-list li::before {
+    content: "▹";
+    position: absolute;
+    left: 0;
+    color: var(--accent-green);
+    font-weight: bold;
+}
+
+/* --- THE "PERSONAL COMMENT" BOX --- */
+.personal-comment {
+    background-color: rgba(100, 255, 218, 0.05); /* Very faint green bg */
+    border: 1px dashed var(--accent-green);       /* Dashed informal border */
+    border-radius: 8px;
+    padding: 20px;
+    margin: 30px 0;
+    font-style: italic;
+    color: var(--text-main);
+    position: relative;
+    font-family: 'Inter', sans-serif; /* Keep sans, or use serif for contrast */
+}
+
+.personal-comment strong {
+    color: var(--accent-green);
+    font-style: normal;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* --- Resource Grid --- */
+.resource-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.resource-card {
+    background-color: var(--bg-card);
+    padding: 25px;
+    border-radius: var(--border-radius);
+    text-align: center;
+    border: 1px solid transparent;
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+
+.resource-card:hover {
+    border-color: var(--accent-green);
+    transform: translateY(-5px);
+    background-color: rgba(17, 34, 64, 0.8);
+}
+
+.res-icon {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.res-title {
+    color: var(--text-main);
+    font-weight: 600;
+    display: block;
+}
+
+.res-desc {
+    font-family: monospace;
+    font-size: 0.8rem;
+    color: var(--accent-green);
+    margin-top: 5px;
+}
+
+/* --- Image Collage --- */
+.image-collage {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.img-wrapper {
+    position: relative;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    border: 1px solid rgba(100, 255, 218, 0.1);
+}
+
+/* Make the 3rd image span full width if there are 3 images */
+.img-wrapper.wide {
+    grid-column: span 2;
+}
+
+.img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.img-wrapper:hover img {
+    transform: scale(1.02);
+}
+
+.caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px;
+    background: rgba(10, 25, 47, 0.85);
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    text-align: center;
+}
+
+/* Mobile fix for collage */
+@media (max-width: 768px) {
+    .image-collage {
+        grid-template-columns: 1fr;
+    }
+    .img-wrapper.wide {
+        grid-column: span 1;
+    }
+}
