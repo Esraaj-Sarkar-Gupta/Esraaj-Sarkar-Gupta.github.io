@@ -467,6 +467,23 @@ footer {
     text-align: center;
 }
 
+.image-collage > .caption {
+    grid-column: 1 / -1; 
+    
+    position: static; 
+    background: transparent;
+    
+    text-align: center;
+    margin-top: 15px;
+    display: block;
+    width: 100%;
+    
+    font-family: 'Inter', sans-serif;
+    font-style: italic;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
 /* Mobile fix for collage */
 @media (max-width: 768px) {
     .image-collage {
